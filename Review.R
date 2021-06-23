@@ -1,5 +1,8 @@
 library(bibliometrix)
+library(dplyr)
 library(plotly)
+library(tidyverse)
+library(ggplot2)
 
 biblioshiny()
 
