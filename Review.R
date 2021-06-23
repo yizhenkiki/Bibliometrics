@@ -4,20 +4,20 @@ library(plotly)
 biblioshiny()
 
 #Import Data-Only CAIS
-rawData <- "C:/Users/kiki3/Documents/Analysis/RawData/CAIS_Review_0328_merge_remove_review.bib"
+rawData <- "./RawData/CAIS_Review_0328_merge_remove_review.bib"
 #Import Data-Only JAIS
-rawData <- "C:/Users/kiki3/Documents/Analysis/RawData/JAIS_Review_0328_merge_remove_review.bib"
+rawData <- "./RawData/JAIS_Review_0328_merge_remove_review.bib"
 #Import Data-Only PAJAIS
-rawData <- "C:/Users/kiki3/Documents/Analysis/RawData/PAJAIS_Review_0328_merge_remove_review.bib"
+rawData <- "./RawData/PAJAIS_Review_0328_merge_remove_review.bib"
 
 #Import Data-three journals
-rawData <- "C:/Users/kiki3/Documents/Analysis/RawData/0406_Reivew.bib"
+rawData <- "./RawData/0406_Reivew.bib"
 
-#Import Data-three journals-分年份
-rawData <- "C:/Users/kiki3/Documents/Analysis/RawData/2000_2010.bib"
+#Import Data-three journals
+rawData <- "./RawData/2000_2010.bib"
 
-#Import Data-three journals-分年份
-rawData <- "C:/Users/kiki3/Documents/Analysis/RawData/2011_2020.bib"
+#Import Data-three journals
+rawData <- "./RawData/2011_2020.bib"
 
 data <- convert2df(file = rawData, format = "bibtex")
 Review <- subset(data, select = c(-C1,-AU_UN))
@@ -136,16 +136,6 @@ network = "author_keywords", sep = ";")
 net <- networkPlot(NetMatrix, n = 30, type = "fruchterman", Title = "co-occurrences",labelsize=0.5) 
 
 net2VOSviewer(net)
-
-# #Time Evolution1
-# years=c(2010,2015)
-# nexus <- thematicEvolution(Review,field = "DE",years = years,n=100,minFreq = 10)
-# plotThematicEvolution(nexus$Nodes, nexus$Edges)
-# 
-# #Time Evolution2
-# years=c(2006,2008,2012)
-# nexus <- thematicEvolution(Review,field = "DE",years = years,n=100,minFreq = 10)
-# plotThematicEvolution(nexus$Nodes, nexus$Edges)
 
 #Time Evolution across 20 years
 x <- c('2001-2005','2006-2010','2011-2015','2016-2020')
