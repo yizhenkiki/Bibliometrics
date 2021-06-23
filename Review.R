@@ -136,6 +136,7 @@ data(Review, package = "bibliometrixData")
 NetMatrix <- biblioNetwork(Review, analysis = "co-occurrences", 
 network = "author_keywords", sep = ";")
 
+#Clustering Algorithm: InfoMap
 net <- networkPlot(NetMatrix, n = 30, type = "fruchterman", Title = "co-occurrences",labelsize=0.5) 
 
 net2VOSviewer(net)
